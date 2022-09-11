@@ -1,12 +1,13 @@
 // Constants can be placed outside functions in the global scope, available program wide.
 // They're also 'in-lined' at compile time adding to the speed of Rust.
 const WARP_FACTOR: f64 = 9.98;
+const STARTING_MISSILES: i32 = 8;
 fn main() {
     // Variables in Rust are immutable by default.
     // You can however make a variable mutable by adding the 'mut' keyword.
     // You are not required to type let statements when the compiler can figure out the type
     // similar to typescript .. Below we type it anyway.
-    let missiles: i32 = 8;
+    let mut missiles: i32 = 8;
     let ready: i32 = 2;
     // Another even stricter variable declaration is the constant.
     // Typing is required on constants. and Screaming SnakeCase used by convention.
@@ -15,7 +16,7 @@ fn main() {
         "Firing {} of my {} missiles (which travel at {} warp)!",
         ready, missiles, WARP_FACTOR,
     );
-
+    missiles = missiles - ready;
     // You can destructure variables
     let (silly, dumb, dooda) = ("LOL", "snakes", "sherpa");
 
